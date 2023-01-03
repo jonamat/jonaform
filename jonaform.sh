@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PUBKEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDAfwClkaubV9wO7O87i62kWdYc23ha81nxjlSgNaeSnkiLCrhytJYY50j2t7wqnp/dogtZlMYVftgk2PN2GwLbmmhqEd7qBQ9MOgsigPdpqkCGIJd6HZopGXX0stVAVAjvKqa0oen5ajOeYDdKzOhwEv4bG4FlE/p9n2B/33/7LVSrUmEzFJwp5ngzuMM5ftCFTwr4QtOxbuirhurCU5wHFXPXMYYMtrU+iIPYE7iyPWaQz8zhOFfWEYNxkQBCBxLV1+MWqXr1lCcxyTTSfz/CUy7qngvo02rKSav2e3jktZ602i4j1iY0XQEdSTLcg3kvEUGMqCCiJkK3haeOnryNUL9tlVEwtoeZGhyjsH3g8bllwmPHnSg1DS9+14ESA1y7Cbcd6I6v+4eNCbyVVxza22REKzbZt6fCHlZItnC1hUAmEjpcZ5wAZP2UnyOuRvwssHufu5wbxbBvuG/YzsNcrpCvh+OQgmxaz0eZgcquA2jZWKRKHl5uyjutNp8A9Hc= jonathan@laptop1"
+PUBKEY="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZ4UypCnbKr3wTCcAXNehMKVZcTMN56Fk1XktC1vKyO jonathan@all"
 BASHRC=$(
     cat <<-END
 alias rm="trash"
@@ -19,6 +19,7 @@ alias python="python3"
 alias pip="pip3"
 alias pip2="pip2.7"
 alias sl="sqlite3"
+
 
 alias targz="tar -xzvf"
 alias tartar="tar -xvf"
