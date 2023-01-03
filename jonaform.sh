@@ -202,7 +202,7 @@ done
 
 PYTHON3=0
 while true; do
-    read -p "Do you need Python3 and pip? [y/n] " yn
+    read -p "Do you need Python3, pip3 and pyenv? [y/n] " yn
     case $yn in
     [Yy]*)
         PYTHON3=1
@@ -225,6 +225,24 @@ while true; do
     *) echo "Please answer y or n" ;;
     esac
 done
+
+
+SWAP=0
+while true; do
+    read -p "Do you want create a swapfile? [y/n] " yn
+    case $yn in
+    [Yy]*)
+        SWAP=1
+        break
+        ;;
+    [Nn]*) break ;;
+    *) echo "Please answer y or n" ;;
+    esac
+done
+
+if [ $SWAP -eq 1 ]; then
+    read -p "How many GB do you want for swap? " SWAPSIZE
+fi
 
 sudo apt update
 echo "Installing essentials..."
@@ -263,6 +281,8 @@ fi
 if [ $PYTHON3 -eq 1 ]; then
     echo "Installing Python..."
     sudo apt install -y python3 python3-pip
+    sudo pip3 install --upgrade pip
+    curl https://pyenv.run | bash
     echo "Done"
 fi
 
@@ -275,6 +295,15 @@ if [ $NODEJS -eq 1 ]; then
     nvm install node
     nvm use default
     npm install -g yarn npm-check-updates
+    echo "Done"
+fi
+
+if [ $SWAP -eq 1 ]; then
+    echo "Creating swapfile..."
+    sudo fallocate -l ${SWAPSIZE}G /swapfile
+    sudo chmod 600 /swapfile
+    sudo mkswap /swapfile
+    sudo swapon /swapfile
     echo "Done"
 fi
 
