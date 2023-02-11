@@ -457,7 +457,7 @@ source ~/.bashrc
 echo "Done"
 
 echo "Updating sshd_config"
-echo "$SSHD_CONFIG" >/etc/ssh/sshd_config
+sudo echo "$SSHD_CONFIG" >/etc/ssh/sshd_config
 sudo systemctl restart sshd
 echo "Done"
 
